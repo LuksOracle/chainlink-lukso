@@ -15,18 +15,18 @@ contract faucetLINK {
     event transferLINK();
 
     modifier cooldown() {
-        require(block.timestamp > (withdrawAddress[msg.sender] + 43200), "Current user must wait 12 hours for faucet cooldown.");
+        require(block.timestamp > (withdrawAddress[msg.sender] + 43200), "Current user must Wait 12 hours for facuet cooldown.");
         _;
     }
     
     modifier faucetFunded() {
-        require(tokenObject.balanceOf(address(this)) >= 20 ether,"Faucet has less than 20 LINK.");
+        require(tokenObject.balanceOf(address(this)) >= 20 ether,"Faucet does not have any more LINK (has less than 20 LINK currently).");
         _;
     }
 
-    function withdraw() public cooldown faucetFunded {
-        withdrawAddress[msg.sender] = block.timestamp; //Current time.
-        tokenObject.transfer(msg.sender, 20 ether);    //Send 10 LINK to user.
+    function withdraw() public faucetFunded cooldown {
+        withdrawAddress[msg.sender] = block.timestamp; //Current faucet user address records current UNIX time for cooldown check. 
+        tokenObject.transfer(msg.sender, 20 ether);    //Send 10 LINK to current faucet user address.
         emit transferLINK();
     }
     
