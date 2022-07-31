@@ -20,7 +20,7 @@ contract faucetLINK {
     }
     
     modifier faucetFunded() {
-        require(tokenObject.balanceOf(address(this)) >= 20 ether,"Faucet does not have any more LINK (has less than 20 LINK currently).");
+        require(tokenObject.balanceOf(address(this)) >= 20 ether,"Faucet has less than 20 LINK.");
         _;
     }
 
