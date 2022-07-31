@@ -10,12 +10,12 @@ contract faucetLINK {
     address private ChainlinkTokenAddressRinkeby = 0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268;
     ERC20TokenContract tokenObject = ERC20TokenContract(ChainlinkTokenAddressRinkeby);
 
-    mapping(address => uint) public withdrawAddress;
+    mapping(address => uint) public userPreviousWithdrawTime;
 
-    event transferLINK();
+    event faucetWithdraw();
 
     modifier cooldown() {
-        require(block.timestamp > (withdrawAddress[msg.sender] + 43200), "Current user must Wait 12 hours for facuet cooldown.");
+        require(block.timestamp > (userPreviousWithdrawTime[msg.sender] + 43200), "Current user must Wait 12 hours for faucet cooldown.");
         _;
     }
     
@@ -25,9 +25,9 @@ contract faucetLINK {
     }
 
     function withdraw() public faucetFunded cooldown {
-        withdrawAddress[msg.sender] = block.timestamp; //Current faucet user address records current UNIX time for cooldown check. 
-        tokenObject.transfer(msg.sender, 20 ether);    //Send 10 LINK to current faucet user address.
-        emit transferLINK();
+        userPreviousWithdrawTime[msg.sender] = block.timestamp; //Current faucet user address records current UNIX time for cooldown check. 
+        tokenObject.transfer(msg.sender, 20 ether);             //Send 20 LINK to current faucet user address.
+        emit faucetWithdraw();
     }
     
 }
