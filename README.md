@@ -42,6 +42,6 @@ Lukso LINK: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28
 Faucet deployed (redeploy after all LINK drained since contract edited):
 https://explorer.execution.l16.lukso.network/address/0x98464Aa91399563c9DD4652867B87b2C088F9660/transactions
 
-:red_circle: Lukso Oracle.sol (redeploy and save contract): :red_circle:
+Lukso Oracle.sol (redeploy and save contract): https://explorer.execution.l16.lukso.network/address/0x401ae6Bfb89448fB6e06CE7C9171a8A0366d02d0/transactions
 
-:red_circle: Lukso requestGETuint256.sol (redeploy and save contract): :red_circle:
+Lukso requestGETuint256.sol (redeploy and save contract): https://explorer.execution.l16.lukso.network/address/0x090b750b9B5251828E16360Fd69100dc4c674e71/transactions
