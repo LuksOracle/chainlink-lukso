@@ -22,7 +22,7 @@ Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
         cd chainlink-lukso
         docker compose up
 
-Note: if there is an issue with your node, run the following (will wipe DockerPostgreSQL files for a clean node):
+:warning: Note: if there is an issue with your node, run the following (will wipe DockerPostgreSQL files for a clean node): :warning:
 
         cd chainlink-lukso
         docker rm -vf $(docker ps -aq)
@@ -33,11 +33,15 @@ Note: if there is an issue with your node, run the following (will wipe DockerPo
 
         http://localhost:6688/
 
-## We deployed the LINK ERC-677 token to the Lukso blockchain:
+## Lukso Chainlink Contracts
 
-Ethereum Mainnet LINK: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code
+Lukso LINK: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268/transactions
 
-Lukso deployed: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268/transactions
+(From Ethereum Mainnet LINK: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
 
 Faucet deployed (redeploy after all LINK drained since contract edited):
 https://explorer.execution.l16.lukso.network/address/0x98464Aa91399563c9DD4652867B87b2C088F9660/transactions
+
+:red_circle: Lukso Oracle.sol (redeploy and save contract): :red_circle:
+
+:red_circle: Lukso requestGETuint256.sol (redeploy and save contract): :red_circle:
