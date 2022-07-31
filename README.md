@@ -1,6 +1,6 @@
 # LuksOracle
 
-Chainlink Oracle on Lukso blockchain.
+Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 
 We deployed the LINK ERC-677 token to the Lukso blockchain:
 
