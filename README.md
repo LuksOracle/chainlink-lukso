@@ -47,7 +47,7 @@ Lukso LINK: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28
 
 (From Ethereum Mainnet LINK: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
 
-LINK Faucet deployed (20 LINK every 12 hours) 
+LINK Faucet deployed (20 LINK every 12 hours direct and with Lukso Universal Profile Key Manager transaction relay option) 
 https://explorer.execution.l16.lukso.network/address/0xcaa48809Dd9E46F8Cc7523Afd9EbD7909F2E5D5b/transactions
 
 Lukso Oracle.sol (redeploy and save contract): https://explorer.execution.l16.lukso.network/address/0x401ae6Bfb89448fB6e06CE7C9171a8A0366d02d0/transactions
