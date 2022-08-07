@@ -2,9 +2,16 @@
 
 Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 
+Note: 
+
 ## Starting the Chainlink node on Lukso with WSS RPC URL:
 
+0. Fork this repository/folder.
+
+:warning: Note: if running on Windows, use WSL2, and fork the repository onto /home rather than /mnt. Otherwise, Chainlink will be unable to connect to pgSQL :warning: 
+
 1. Create a "data" folder inside the "chainlink-lukso" directory [holds PostgreSQL database].
+
 2. Create an ".env" file inside the "chainlink-lukso" directory with the following in chainlink-lukso [we are using a public WSS RPC URL]:
     
         ROOT=/chainlink
@@ -17,6 +24,7 @@ Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
         DATABASE_URL=postgresql://postgres:secret@chainlink-lukso-pg_chainlink-1:5432/chainlink-lukso?sslmode=disable
 
 3. Update directories to match your file system for "docker-compose.yml"
+
 4. Run the following in command line:
 
         cd chainlink-lukso
