@@ -45,7 +45,7 @@ Note:
 
 Lukso LINK: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268/transactions
 
-(From Ethereum Mainnet LINK: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
+(From Ethereum Mainnet LINK contract: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
 
 LINK Faucet deployed (20 LINK every 12 hours direct and with Lukso Universal Profile Key Manager transaction relay option) 
 https://explorer.execution.l16.lukso.network/address/0xcaa48809Dd9E46F8Cc7523Afd9EbD7909F2E5D5b/transactions
