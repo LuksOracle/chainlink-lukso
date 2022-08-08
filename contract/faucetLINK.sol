@@ -16,7 +16,7 @@ contract faucetLINK {
     event faucetWithdraw();
 
     modifier cooldown(address cooldownUser) {
-        require(block.timestamp > (userPreviousWithdrawTime[msg.sender] + 43200), "Current user must wait 12 hours for faucet cooldown.");
+        require(block.timestamp > (userPreviousWithdrawTime[cooldownUser] + 43200), "Current user must wait 12 hours for faucet cooldown.");
         _;
     }
     
