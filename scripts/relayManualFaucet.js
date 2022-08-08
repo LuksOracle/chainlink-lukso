@@ -34,7 +34,7 @@ const nonce = await KeyManager.methods
 
   const abiPayload = myUniversalProfile.methods.execute(
       0, // The OPERATION_CALL value. 0 for a LYX transaction
-      '0xcaa48809Dd9E46F8Cc7523Afd9EbD7909F2E5D5b', // Recipient address
+      '0xE1Ec78D6170d632D540948a3D53982209E32A007', // Recipient address
       web3.utils.toWei('0'), // amount of LYX to send in wei
       '0x7cc201d200000000000000000000000066c1d8a5ee726b545576a75380391835f8aaa43c' // Call data, to be called on the recipient address, or '0x'
   ).encodeABI() ;
