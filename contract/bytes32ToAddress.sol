@@ -14,7 +14,6 @@ contract bytes32ToAddress {
         addressAddresType = address(uint160(uint256(addressBytes32TypeLeft>>96)));
     }
     
-    //FAILS WHEN LEFT CENTERED.
     function bytes32ToAddressTest() public view returns (address) { //
         return address(uint160(uint256(addressBytes32TypeRight)));
     }
