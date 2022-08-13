@@ -10,12 +10,13 @@ contract faucetLINK {
     address private ChainlinkTokenAddressRinkeby = 0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268;
     ERC20TokenContract tokenObject = ERC20TokenContract(ChainlinkTokenAddressRinkeby);
 
+    address public immutable relayAddress = 0x8414F1BaC5fCdA2C274A4a78D0D62109f1Cbb6C8; //UNIVERSAL PROFILE ADDRESS ON L16.
     mapping(address => uint) public userPreviousWithdrawTime;
 
     event faucetWithdraw();
 
-    modifier cooldown() {
-        require(block.timestamp > (userPreviousWithdrawTime[msg.sender] + 43200), "Current user must wait 12 hours for faucet cooldown.");
+    modifier cooldown(address cooldownUser) {
+        require(block.timestamp > (userPreviousWithdrawTime[cooldownUser] + 43200), "Current user must wait 12 hours for faucet cooldown.");
         _;
     }
     
@@ -24,10 +25,20 @@ contract faucetLINK {
         _;
     }
 
-    function withdraw() public faucetFunded cooldown {
+    modifier isRelay() {
+        require(msg.sender == relayAddress ,"Only the relay address can access this function.");
+        _;
+    }
+
+    function withdrawDirect() public faucetFunded cooldown(msg.sender) {
         userPreviousWithdrawTime[msg.sender] = block.timestamp; //Current faucet user address records current UNIX time for cooldown check. 
         tokenObject.transfer(msg.sender, 20 ether);             //Send 20 LINK to current faucet user address.
         emit faucetWithdraw();
     }
     
+    function withdrawRelay(address relayCaller) public isRelay faucetFunded cooldown(relayCaller) {
+        userPreviousWithdrawTime[relayCaller] = block.timestamp; //Current faucet user address records current UNIX time for cooldown check. 
+        tokenObject.transfer(relayCaller, 20 ether);             //Send 20 LINK to current faucet user address.
+        emit faucetWithdraw();
+    }
 }

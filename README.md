@@ -2,7 +2,13 @@
 
 Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 
+Note: 
+
 ## Starting the Chainlink node on Lukso with WSS RPC URL:
+
+0. Fork this repository/folder.
+
+:warning: Note: if running on Windows, use WSL2, and fork the repository onto /home rather than /mnt. Otherwise, Chainlink will be unable to connect to pgSQL :warning: 
 
 1. Create a "data" folder inside the "chainlink-lukso" directory [holds PostgreSQL database].
 
@@ -17,7 +23,7 @@ Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
         ETH_URL=wss://ws.rpc.l16.lukso.network
         DATABASE_URL=postgresql://postgres:secret@chainlink-lukso-pg_chainlink-1:5432/chainlink-lukso?sslmode=disable
 
-3. Update directories to match your file system under "volumes" in "docker-compose.yml"
+3. Update directories to match your file system for "docker-compose.yml"
 
 4. Run the following in command line:
 
@@ -39,10 +45,13 @@ Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 
 Lukso LINK: https://explorer.execution.l16.lukso.network/address/0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268/transactions
 
-(From Ethereum Mainnet LINK: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
+(From Ethereum Mainnet LINK contract: https://etherscan.io/token/0x514910771af9ca656af840dff83e8264ecf986ca#code)
 
-LINK Faucet deployed (20 LINK every 12 hours) 
-https://explorer.execution.l16.lukso.network/address/0x7053af6475b2a11Bff65E697E349d66e6580d371/transactions
+Lukso LINK Faucet (20 LINK every 12 hours direct and with Lukso Universal Profile Key Manager transaction relay option) 
+https://explorer.execution.l16.lukso.network/address/0xE1Ec78D6170d632D540948a3D53982209E32A007/transactions
+
+Relay transaction worked with Lukso LINK Faucet: 
+https://explorer.execution.l16.lukso.network/tx/0xb511a7a08c6cbb8df378970244cd19216b270e2210e224a9fc4492e5db09a1be/token-transfers
 
 Lukso Oracle.sol (redeploy and save contract): https://explorer.execution.l16.lukso.network/address/0x401ae6Bfb89448fB6e06CE7C9171a8A0366d02d0/transactions
 
