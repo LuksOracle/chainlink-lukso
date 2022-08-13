@@ -1,3 +1,9 @@
 .env
+# chainlink node
 ./chainlink-volume/chainlink_debug.log
 ./chainlink-volume/docker-compose.yml
+
+# external adapter
+./twitter-EA/__pycache__/
+./twitter-EA/package/
+./twitter-EA/*.zip
