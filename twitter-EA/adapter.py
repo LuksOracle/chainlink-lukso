@@ -1,12 +1,14 @@
 from bridge import Bridge
+import os
 
 class Adapter:
-    base_url = 'https://min-api.cryptocompare.com/data/price'
+#    base_url = "https://api.twitter.com/2/users/1018093644/tweets?max_results=5"
 #    from_params = ['base', 'from', 'coin']
 #    to_params = ['quote', 'to', 'market']
 
     def __init__(self, input):
         self.id = input.get('id', '1')
+
         self.request_data = input.get('data')
         if self.validate_request_data():
             self.bridge = Bridge()
@@ -20,10 +22,13 @@ class Adapter:
             return False
         if self.request_data == {}:
             return False
+        print(self.request_data)
         return True
+        
 
     def set_params(self):
-        self.station_id = self.request_data.get("station_id")
+        self.twitter_id = int(self.request_data.get("twitter_id"))
+        self.address_owner = self.request_data.get("address_owner")
         # for param in self.from_params:
         #     self.from_param = self.request_data.get(param)
         #     if self.from_param is not None:
@@ -35,21 +40,30 @@ class Adapter:
 
     def create_request(self):
         try:
-            params = {}
-            #{
-#                'fsym': self.from_param,
- #               'tsyms': self.to_param,
-  #          }
-            base_url = 'https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20220807 15:00&end_date=20220807 15:06&station={}&product=water_temperature&units=english&time_zone=gmt&application=ports_screen&format=json'.format(self.station_id) 
-            response = self.bridge.request(base_url, params)
+            params = {
+                'id' : self.twitter_id
+            }
+
+            headers = {
+                "Authorization": "Bearer " + os.environ.get('BEARER_TOKEN')
+                }
+            
+            print('pepe')
+            base_url = 'https://api.twitter.com/2/users/{}/tweets?max_results=5'.format(params['id']) 
+            print('pepe')
+            
+            response = self.bridge.request(base_url, headers=headers)
+
             # response from external api
             data = response.json()
-
             # parse response data
-            self.result = int(float(data['data'][0]['v'])*10)
-#           self.result = data[self.to_param]
-            data['result'] = self.result
-            self.result_success(data)
+            address_owner = data["data"][0]["text"].split(' ')[5]
+            if (address_owner.strip() == self.address_owner.strip()):
+                self.result = 1 #address_owner''
+            else:
+                self.result = 2
+
+            self.result_success(self.result)
         except Exception as e:
             self.result_error(e)
         finally:
