@@ -9,9 +9,9 @@ contract TwitterNameSpace is ChainlinkClient {
     using Chainlink for Chainlink.Request;
 
     address public tempRequestAddress;
-    string public tempTwitter_id;       //REWRITE AS A UINT96 LATER IF POSSIBLE TO PACK ADDRESS 20 BYTES WITH ANOTHER 12 BYTES.
+    string public tempTwitter_id = "0";       //REWRITE AS A UINT96 LATER IF POSSIBLE TO PACK ADDRESS 20 BYTES WITH ANOTHER 12 BYTES.
 
-    mapping(address => string) public addressTwitterID;
+    mapping(address => string) public addressTwitterID ;
     mapping(string => address) public twitterIDaddress;
 
     constructor()  {
