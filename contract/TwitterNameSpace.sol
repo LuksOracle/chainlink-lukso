@@ -11,7 +11,7 @@ contract TwitterNameSpace is ChainlinkClient {
     address public tempRequestAddress;      //20 BYTES, 20/32 FOR SLOT 0
     uint96  public tempTwitter_id;          //12 BYTES, 32/32 FOR SLOT 0
 
-    mapping(address => uint96) public addressTwitterID ;
+    mapping(address => uint96) public addressTwitterID;
     mapping(uint96 => address) public twitterIDaddress;
 
     constructor()  {
