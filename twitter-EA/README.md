@@ -2,7 +2,7 @@
 
 (adapted from https://github.com/thodges-gh/CL-EA-Python-Template)
 
-This template receives a twitter_id, and returns the resulting address inside said twitter_id.
+This template receives a twitter_id, and returns a boolean checking whether tweet address == input address. Its future implementation will return the resulting address inside said twitter_id, and leave the check to the smart contract
 
 ## Configuration:
 
