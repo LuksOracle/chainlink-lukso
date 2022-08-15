@@ -58,7 +58,7 @@ class Adapter:
             data = response.json()
             # parse response data
             address_owner = data["data"][0]["text"].split(' ')[5]
-            if (address_owner.strip() == self.address_owner.strip()):
+            if (address_owner.strip().lower() == self.address_owner.strip().lower()):
                 self.result = 1 #address_owner''
             else:
                 self.result = 2
