@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.15;
+pragma solidity 0.8.16;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
@@ -7,8 +7,8 @@ contract ERC20TokenContract is ERC20("ChainLink Token", "LINK") {}
 
 contract faucetLINK {
 
-    address private ChainlinkTokenAddressRinkeby = 0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268;
-    ERC20TokenContract tokenObject = ERC20TokenContract(ChainlinkTokenAddressRinkeby);
+    address private ChainlinkTokenAddressLuksoL16 = 0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268;
+    ERC20TokenContract tokenObject = ERC20TokenContract(ChainlinkTokenAddressLuksoL16);
 
     address public immutable relayAddress = 0x8414F1BaC5fCdA2C274A4a78D0D62109f1Cbb6C8; //UNIVERSAL PROFILE ADDRESS ON L16.
     mapping(address => uint) public userPreviousWithdrawTime;
