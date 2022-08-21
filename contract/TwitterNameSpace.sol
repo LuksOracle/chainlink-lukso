@@ -50,7 +50,7 @@ contract TwitterNameSpace is ChainlinkClient {
         emit tweetRequestEvent();
     }
 
-    function addressResolveTo(uint96 _twitter_id) public twitterMatchesAccount(_twitter_id,msg.sender){
+    function resolveToTwitterID(uint96 _twitter_id) public twitterMatchesAccount(_twitter_id,msg.sender){
         addressTwitterID[msg.sender] = _twitter_id;
     }
 
