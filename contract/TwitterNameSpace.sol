@@ -16,6 +16,11 @@ contract TwitterNameSpace is ChainlinkClient {
 
     event tweetRequestEvent();
 
+    modifier twitterMatchesAccount(uint96 twitter_id,address checkAddress){
+        require(twitterIDaddress[twitter_id] == checkAddress, "You have not verified this Twitter ID with your account yet.");
+        _;
+    }
+
     constructor()  {
         setChainlinkToken(0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268);
         setChainlinkOracle(0x401ae6Bfb89448fB6e06CE7C9171a8A0366d02d0);
@@ -43,6 +48,10 @@ contract TwitterNameSpace is ChainlinkClient {
         tempRequestAddress = address(0);
         tempTwitter_id = 0;
         emit tweetRequestEvent();
+    }
+
+    function addressResolveTo(uint96 _twitter_id) public twitterMatchesAccount(_twitter_id,msg.sender){
+        addressTwitterID[msg.sender] = _twitter_id;
     }
 
 }
