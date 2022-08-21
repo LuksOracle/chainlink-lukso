@@ -14,6 +14,8 @@ contract TwitterNameSpace is ChainlinkClient {
     mapping(address => uint96) public addressTwitterID;
     mapping(uint96 => address) public twitterIDaddress;
 
+    event tweetRequestEvent();
+
     constructor()  {
         setChainlinkToken(0xbFB26279a9D28CeC1F781808Da89eFbBfE2c4268);
         setChainlinkOracle(0x401ae6Bfb89448fB6e06CE7C9171a8A0366d02d0);
@@ -40,6 +42,7 @@ contract TwitterNameSpace is ChainlinkClient {
         }
         tempRequestAddress = address(0);
         tempTwitter_id = 0;
+        emit tweetRequestEvent();
     }
 
 }
