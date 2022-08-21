@@ -27,8 +27,7 @@ contract TwitterNameSpace is ChainlinkClient {
     }
 
     function requestTweetAddressCompare(uint96 twitter_id_Request) public returns (bytes32 requestId) {
-        require(tempTwitter_id ==  0, "REQUEST ALREADY ACTIVE FOR TWITTER ID!");
-        require(tempRequestAddress == address(0), "REQUEST ALREADY CHECKING ADDRESS!");
+        require(tempTwitter_id ==  0 && tempRequestAddress == address(0), "REQUEST ALREADY ACTIVE!");
         Chainlink.Request memory req = buildChainlinkRequest("13a2fe212bcf40978d8c0d52b8d96e4d", address(this), this.fulfillTweetAddressCompare.selector);
         req.add("twitter_id"   , Strings.toString(twitter_id_Request));                                    // Point at specific Tweet.
         req.add("address_owner", Strings.toHexString(uint160(msg.sender), 20) ); //Point at msg.sender (type string to handle Chainlink request).
