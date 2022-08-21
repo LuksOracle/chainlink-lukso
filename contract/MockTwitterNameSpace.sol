@@ -19,8 +19,7 @@ contract MockTwitterNameSpace {
     }
 
     function requestTweetAddressCompare(uint96 twitter_id_Request) public {
-        require(tempTwitter_id ==  0, "REQUEST ALREADY ACTIVE FOR TWITTER ID!");
-        require(tempRequestAddress == address(0), "REQUEST ALREADY CHECKING ADDRESS!");
+        require(tempTwitter_id ==  0 && tempRequestAddress == address(0), "REQUEST ALREADY ACTIVE!");
         //Skip sending to oracle.
         tempTwitter_id = twitter_id_Request;
         tempRequestAddress = msg.sender;
