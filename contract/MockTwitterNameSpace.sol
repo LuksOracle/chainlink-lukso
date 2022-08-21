@@ -13,6 +13,11 @@ contract MockTwitterNameSpace {
 
     event tweetRequestEvent();
 
+    modifier twitterMatchesAccount(uint96 twitter_id,address checkAddress){
+        require(twitterIDaddress[twitter_id] == checkAddress, "You have not verified this Twitter ID with your account yet.");
+        _;
+    }
+
     function requestTweetAddressCompare(uint96 twitter_id_Request) public {
         require(tempTwitter_id ==  0, "REQUEST ALREADY ACTIVE FOR TWITTER ID!");
         require(tempRequestAddress == address(0), "REQUEST ALREADY CHECKING ADDRESS!");
@@ -29,6 +34,7 @@ contract MockTwitterNameSpace {
         if(_addressFromTweetMatches == 1){
             if(twitterIDaddress[tempTwitter_id] != address(0)){
                 addressTwitterID[twitterIDaddress[tempTwitter_id]] = 0;
+                addressTwitterID[twitterIDaddress[tempTwitter_id]] = 0;
             }
                 addressTwitterID[tempRequestAddress] = tempTwitter_id;
                 twitterIDaddress[tempTwitter_id] = tempRequestAddress;
@@ -36,6 +42,10 @@ contract MockTwitterNameSpace {
         tempRequestAddress = address(0);
         tempTwitter_id = 0;
         emit tweetRequestEvent();
+    }
+
+    function addressResolveTo(uint96 _twitter_id) public twitterMatchesAccount(_twitter_id,msg.sender){
+        addressTwitterID[msg.sender] = _twitter_id;
     }
 
 }
