@@ -11,26 +11,31 @@ contract MockTwitterNameSpace {
     mapping(address => uint96) public addressTwitterID;
     mapping(uint96 => address) public twitterIDaddress;
 
+    event tweetRequestEvent();
+
     function requestTweetAddressCompare(uint96 twitter_id_Request) public {
         require(tempTwitter_id ==  0, "REQUEST ALREADY ACTIVE FOR TWITTER ID!");
         require(tempRequestAddress == address(0), "REQUEST ALREADY CHECKING ADDRESS!");
         //Skip sending to oracle.
         tempTwitter_id = twitter_id_Request;
         tempRequestAddress = msg.sender;
-        //Skip waiting for an answer.
-          if(_addressFromTweetMatches == 1){
-            if(twitterIDaddress[tempTwitter_id] != address(0)){
-                addressTwitterID[twitterIDaddress[tempTwitter_id]] = 0;
-            }
-            addressTwitterID[tempRequestAddress] = tempTwitter_id;
-            twitterIDaddress[tempTwitter_id] = tempRequestAddress;
-        }
-        tempRequestAddress = address(0);
-        tempTwitter_id = 0;
     }
 
     function mockRequestAnswer(uint mockRequestReturnValue) public {
        _addressFromTweetMatches = mockRequestReturnValue;
+    }
+
+    function mockFulfillLogic() public {
+        if(_addressFromTweetMatches == 1){
+            if(twitterIDaddress[tempTwitter_id] != address(0)){
+                addressTwitterID[twitterIDaddress[tempTwitter_id]] = 0;
+            }
+                addressTwitterID[tempRequestAddress] = tempTwitter_id;
+                twitterIDaddress[tempTwitter_id] = tempRequestAddress;
+        }
+        tempRequestAddress = address(0);
+        tempTwitter_id = 0;
+        emit tweetRequestEvent();
     }
 
 }
