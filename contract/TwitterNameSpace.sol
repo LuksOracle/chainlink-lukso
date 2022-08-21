@@ -37,8 +37,8 @@ contract TwitterNameSpace is ChainlinkClient {
             if(twitterIDaddress[tempTwitter_id] != address(0)){
                 addressTwitterID[twitterIDaddress[tempTwitter_id]] = 0;
             }
-            addressTwitterID[tempRequestAddress] = tempTwitter_id;
-            twitterIDaddress[tempTwitter_id] = tempRequestAddress;
+                addressTwitterID[tempRequestAddress] = tempTwitter_id;
+                twitterIDaddress[tempTwitter_id] = tempRequestAddress;
         }
         tempRequestAddress = address(0);
         tempTwitter_id = 0;
