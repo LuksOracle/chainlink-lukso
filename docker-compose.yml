@@ -6,7 +6,7 @@ services:
     env_file:
       - database.env
     volumes:
-      -  /mnt/c/Users/rxx/Documents/GitHub/backend/chainlink-lukso/data:/var/lib/postgresql/data
+      -  /home/marcuswentz/chainlink-lukso/data:/var/lib/postgresql/data
   chainlink:
     image: "smartcontract/chainlink:1.3.0"
     env_file:
@@ -16,5 +16,5 @@ services:
     ports:
       - "6688:6688"
     volumes:
-      -  /mnt/c/Users/rxx/Documents/GitHub/backend/chainlink-lukso/chainlink-volume:/chainlink/
+      -  /home/marcuswentz/chainlink-lukso/chainlink-volume:/chainlink/
     command: node start --password /chainlink/password.txt --api /chainlink/apicredentials.txt
