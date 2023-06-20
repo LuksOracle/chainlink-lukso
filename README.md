@@ -18,7 +18,6 @@ Create docker instance with password
 ```shell
 sudo docker run --name cl-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```
-
 3. Test Chainlink Node v2.2.0 with TOML files
 
 Start Chainlink Node after PostgreSQL server is running (modify config.toml if you wish to modify network parameters)
