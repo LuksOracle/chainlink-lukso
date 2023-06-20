@@ -8,7 +8,7 @@ Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 ```shell
 git clone git@github.com:LuksOracle/chainlink-lukso.git
 ```
-2. Test Chainlink Node v2.2.0 with TOML files
+2. Start PostgreSQL server instance with Docker
 
 Enter directory
 ```shell
@@ -18,7 +18,10 @@ Create docker instance with password
 ```shell
 sudo docker run --name cl-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
 ```
-Start Chainlink Node (modify config.toml if you wish to modify network parameters)
+
+3. Test Chainlink Node v2.2.0 with TOML files
+
+Start Chainlink Node after PostgreSQL server is running (modify config.toml if you wish to modify network parameters)
 ```shell
 sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
 ```
@@ -41,7 +44,7 @@ sudo kill 25537
 sudo docker rm -vf $(sudo docker ps -aq)
 sudo docker rmi -f $(sudo docker images -q)
 ```
-3. Interact with Chainlink node GUI in web browser URL:
+4. Interact with Chainlink node GUI in web browser URL:
 
 http://localhost:6688/
 
