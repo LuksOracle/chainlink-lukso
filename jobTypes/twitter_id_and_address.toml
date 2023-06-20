@@ -1,7 +1,7 @@
 type = "directrequest"
 schemaVersion = 1
 name = ""
-contractAddress = "########" # YOUR CONTRACT ADDRESS
+contractAddress = "0x0000000000000000000000000000000000000000" # Operator.sol contract address.
 minIncomingConfirmations = 0
 observationSource = """
     decode_log   [type=ethabidecodelog

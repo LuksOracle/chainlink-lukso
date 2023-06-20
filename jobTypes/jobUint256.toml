@@ -1,7 +1,7 @@
 name = "Get > Uint256 - (TOML)"
 schemaVersion = 1
 type = "directrequest"
-contractAddress = "0x8FDDf2Fe177d16C2783b1F52dc71ABbc4366977B"
+contractAddress = "0x0000000000000000000000000000000000000000" # Operator.sol contract address.
 maxTaskDuration = "0s"
 minIncomingConfirmations = 0
 observationSource = """
