@@ -1,4 +1,5 @@
-echo "[Log]
+RootDir = '/chainlink'
+[Log]
 Level = 'warn'
 
 [WebServer]
