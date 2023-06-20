@@ -92,10 +92,6 @@ cd chainlink-lukso
 ```
 Start Chainlink Node
 ```shell
-sudo docker run --platform linux/x86_64/v8 --name chainlink -v /chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
-```
-OR
-```shell
 sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
 ```
 
