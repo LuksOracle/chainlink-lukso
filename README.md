@@ -22,13 +22,11 @@ Start Chainlink Node (modify config.toml if you wish to modify network parameter
 ```shell
 sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
 ```
-:warning:
-Make sure you also install PostgreSQL: 
+:warning: Make sure you also install PostgreSQL: :warning:
+
 ```shell
 sudo apt-get -y install postgresql
 ```
-:warning:
-
 :warning: Note: if a port is being used, end the process in the port with: :warning:
 
 ```shell
