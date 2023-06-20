@@ -90,6 +90,10 @@ Enter directory
 ```shell
 cd chainlink-lukso 
 ```
+Create docker instance with password
+```shell
+sudo docker run --name cl-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres
+```
 Start Chainlink Node
 ```shell
 sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
