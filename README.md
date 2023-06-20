@@ -97,6 +97,5 @@ sudo docker run --platform linux/x86_64/v8 --name chainlink -v $HOME/chainlink-l
 
 6. Interact with Chainlink node interface in weB browser URL:
 
-
 http://localhost:6688/
 

@@ -1,4 +1,4 @@
-RootDir = '/chainlink'
+RootDir = '~/chainlink'
 [Log]
 Level = 'warn'
 
