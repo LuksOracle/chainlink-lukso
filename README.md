@@ -38,10 +38,8 @@ sudo kill 25537
 ```
 :warning: Note: if there is an issue with your node, run the following (will wipe Docker and PostgreSQL files for a clean node): :warning:
 ```shell
-cd chainlink-lukso
 sudo docker rm -vf $(sudo docker ps -aq)
 sudo docker rmi -f $(sudo docker images -q)
-sudo rm -r -f data
 ```
 3. Interact with Chainlink node GUI in web browser URL:
 
