@@ -1,0 +1,16 @@
+echo "[Log]
+Level = 'warn'
+
+[WebServer]
+AllowOrigins = '\*'
+SecureCookies = false
+
+[WebServer.TLS]
+HTTPSPort = 0
+
+[[EVM]]
+ChainID = '2828'
+
+[[EVM.Nodes]]
+Name = 'Lukso'
+WSURL = 'wss://ws.rpc.l16.lukso.network'

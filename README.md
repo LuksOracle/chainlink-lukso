@@ -79,12 +79,24 @@ sudo kill 25537
 
 ```shell
 cd chainlink-lukso
-docker rm -vf $(docker ps -aq)
-docker rmi -f $(docker images -aq)
+sudo docker rm -vf $(sudo docker ps -aq)
+sudo docker rmi -f $(sudo docker images -q)
 sudo rm -r -f data
 ```
 
-5. Interact with Chainlink node interface in weB browser URL:
+5. Test Chainlink Node v2.2.0 with TOML files
+
+Enter directory
+```shell
+cd chainlink-lukso 
+```
+Start Chainlink Node
+```shell
+sudo docker run --platform linux/x86_64/v8 --name chainlink -v ~/.chainlink-lukso:/chainlink -it -p 6688:6688 --add-host=host.docker.internal:host-gateway smartcontract/chainlink:2.2.0 node -config /chainlink/config.toml -secrets /chainlink/secrets.toml start
+```
+
+6. Interact with Chainlink node interface in weB browser URL:
 
 
 http://localhost:6688/
+
