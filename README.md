@@ -2,18 +2,12 @@
 
 Chainlink oracle on Lukso blockchain which supports API uint256 GET requests.
 
-Note:
-
 ## Starting the Chainlink node on Lukso with WSS RPC URL:
 
 1. Clone this repository.
-
 ```shell
 git clone git@github.com:LuksOracle/chainlink-lukso.git
 ```
-
-:warning: Note: if running on Windows, use WSL2, and clone the repository onto /home rather than /mnt. Otherwise, Chainlink will be unable to connect to pgSQL :warning:
-
 2. Test Chainlink Node v2.2.0 with TOML files
 
 Enter directory
@@ -41,17 +35,19 @@ sudo lsof -i tcp:5432
 ```shell
 sudo kill 25537
 ```
-
 :warning: Note: if there is an issue with your node, run the following (will wipe Docker and PostgreSQL files for a clean node): :warning:
-
 ```shell
 cd chainlink-lukso
 sudo docker rm -vf $(sudo docker ps -aq)
 sudo docker rmi -f $(sudo docker images -q)
 sudo rm -r -f data
 ```
-
-3. Interact with Chainlink node interface in weB browser URL:
+3. Interact with Chainlink node GUI in web browser URL:
 
 http://localhost:6688/
 
+## Reference
+
+Running a Chainlink Node - Configure your node
+
+https://docs.chain.link/chainlink-nodes/v1/running-a-chainlink-node
