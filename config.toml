@@ -14,4 +14,5 @@ ChainID = '2828'
 
 [[EVM.Nodes]]
 Name = 'Lukso'
-WSURL = 'wss://ws.rpc.l16.lukso.network'
+WSURL = 'wss://ws-rpc.testnet.lukso.network'
+HTTPURL = 'https://rpc.testnet.lukso.network'
